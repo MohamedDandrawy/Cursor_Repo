@@ -1,0 +1,20 @@
+Ngrok Deployment Steps
+
+1) Install ngrok and authenticate
+   - Create account at https://ngrok.com
+   - Install: pip install pyngrok
+   - Set authtoken: ngrok config add-authtoken YOUR_TOKEN
+
+2) Run Streamlit app locally
+   - Activate your environment
+   - Run: streamlit run ui/app.py --server.address 0.0.0.0 --server.port 8501
+
+3) Expose via ngrok
+   - In another terminal: ngrok http 8501
+   - Copy the https public URL and share it
+
+Alternative (Python):
+   from pyngrok import ngrok
+   public_url = ngrok.connect(8501)
+   print(public_url)
+
